@@ -26,38 +26,38 @@ tasks:
             required_org_code_coverage_percent: 75
 
 flows:
-    config_common:
-        description: Configure common settings for all unmanaged orgs
-        group: Cactusforce24 Base Config
-        steps:
-            1:
-                task: add_account_layout_related_lists
+    #config_common:
+    #    description: Configure common settings for all unmanaged orgs
+    #    group: Cactusforce24 Base Config
+    #    steps:
+    #        1:
+    #            task: add_account_layout_related_lists
 
-    config_common_managed:
-        description: Configure common settings for all managed orgs
-        steps:
-            1:
-                flow: config_common
-                options:
-                    add_account_layout_related_lists:
-                        managed: True
-                        
-    config_apextest:
-        steps:
-            0.1:
-                flow: config_common_managed
-    config_dev:
-        steps:
-            0.1:
-                flow: config_common
-    config_managed:
-        steps:
-            0.1:
-                flow: config_common_managed
-    config_qa:
-        steps:
-            0.1:
-                flow: config_common_managed
+    #config_common_managed:
+    #    description: Configure common settings for all managed orgs
+    #    steps:
+    #        1:
+    #            flow: config_common
+    #            options:
+    #                add_account_layout_related_lists:
+    #                    managed: True
+    #                    
+    #config_apextest:
+    #    steps:
+    #        0.1:
+    #            flow: config_common_managed
+    #config_dev:
+    #    steps:
+    #        0.1:
+    #            flow: config_common
+    #config_managed:
+    #    steps:
+    #        0.1:
+    #            flow: config_common_managed
+    #config_qa:
+    #    steps:
+    #        0.1:
+    #            flow: config_common_managed
 
 orgs:
     scratch:
