@@ -1,0 +1,10 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true
+        }
+    ],
+    "namespace": "cf24base",
+    "sourceApiVersion": "58.0"
+}
