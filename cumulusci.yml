@@ -3,18 +3,61 @@ project:
     name: Cactusforce24-Base
     package:
         name: Cactusforce24 Base
-        namespace: cf24base
+        namespace: cf24dh
         api_version: '58.0'
     git:
         default_branch: 'main'
     source_format: sfdx
-    
-      
+    dependency_resolutions:
+        preproduction: commit_status
 
 tasks:
+    add_account_layout_related_lists:
+        description: Add related lists to the Account layout
+        class_path: cumulusci.tasks.metadata_etl.AddRelatedLists
+        group: Cactusforce24 Base Config
+        options:
+            related_list: "%%%NAMESPACE%%%CF24_Bases"
+            api_names:
+                - Account-Account Layout
+
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+
+flows:
+    config_common:
+        description: Configure common settings for all unmanaged orgs
+        group: Cactusforce24 Base Config
+        steps:
+            1:
+                task: add_account_layout_related_lists
+
+    config_common_managed:
+        description: Configure common settings for all managed orgs
+        steps:
+            1:
+                flow: config_common
+                options:
+                    add_account_layout_related_lists:
+                        managed: True
+                        
+    config_apextest:
+        steps:
+            0.1:
+                flow: config_common_managed
+    config_dev:
+        steps:
+            0.1:
+                flow: config_common
+    config_managed:
+        steps:
+            0.1:
+                flow: config_common_managed
+    config_qa:
+        steps:
+            0.1:
+                flow: config_common_managed
 
 orgs:
     scratch:
