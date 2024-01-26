@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cactus_Family__c</fullName>
+    <externalId>false</externalId>
+    <label>Cactus Family</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mammillaria</fullName>
+                <default>false</default>
+                <label>Mammillaria</label>
+            </value>
+            <value>
+                <fullName>Prickly Pear</fullName>
+                <default>false</default>
+                <label>Prickly Pear</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
