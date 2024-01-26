@@ -1,10 +1,10 @@
 name: 2GP Feature Test
 on:
     workflow_dispatch:
-    #push:
-    #    branches:
-    #        - feature/**
-    #        - main
+    push:
+        branches:
+            - feature/**
+            - main
 jobs:
     feature-test:
         name: "Feature Test"
